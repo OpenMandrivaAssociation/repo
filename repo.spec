@@ -3,7 +3,7 @@
 
 Name: repo
 Version: 1.19
-Release: 4
+Release: 5
 Source0: http://git-repo.googlecode.com/files/repo-%{version}
 Summary: Tool to manage multiple git repositories, commonly used for Android
 URL: http://code.google.com/p/git-repo
