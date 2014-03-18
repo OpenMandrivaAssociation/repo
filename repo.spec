@@ -1,16 +1,18 @@
 %define beta %{nil}
 %define scmrev %{nil}
 
-Name: repo
-Version: 1.19
-Release: 5
-Source0: http://git-repo.googlecode.com/files/repo-%{version}
-Summary: Tool to manage multiple git repositories, commonly used for Android
-URL: http://code.google.com/p/git-repo
-License: Apache Software License
-Group: Development/Other
-Requires: git python gnupg
-BuildArch: noarch
+Summary:	Tool to manage multiple git repositories, commonly used for Android
+Name:		repo
+Version:	1.19
+Release:	5
+License:	Apache Software License
+Group:		Development/Other
+Url:		http://code.google.com/p/git-repo
+Source0:	http://git-repo.googlecode.com/files/%{name}-%{version}
+BuildArch:	noarch
+Requires:	git
+Requires:	gnupg
+Requires:	python
 
 %track
 prog %{name} = {
@@ -38,3 +40,4 @@ install -c -m 755 %{SOURCE0} %{buildroot}%{_bindir}/repo
 
 %files
 %{_bindir}/repo
+
