@@ -3,16 +3,16 @@
 
 Summary:	Tool to manage multiple git repositories, commonly used for Android
 Name:		repo
-Version:	1.19
-Release:	6
+Version:	1.21
+Release:	1
 License:	Apache Software License
 Group:		Development/Other
 Url:		http://code.google.com/p/git-repo
-Source0:	http://git-repo.googlecode.com/files/%{name}-%{version}
+Source0:	https://storage.googleapis.com/git-repo-downloads/repo
 BuildArch:	noarch
 Requires:	git
 Requires:	gnupg
-Requires:	python
+Requires:	python2
 
 %track
 prog %{name} = {
@@ -36,8 +36,8 @@ is an executable Python script that you can put anywhere in your path.
 
 %install
 mkdir -p %{buildroot}%{_bindir}
-install -c -m 755 %{SOURCE0} %{buildroot}%{_bindir}/repo
+sed -e 's,env python,env python2,' %{SOURCE0} >%{buildroot}%{_bindir}/repo
+chmod 0755 %{buildroot}%{_bindir}/repo
 
 %files
 %{_bindir}/repo
-
