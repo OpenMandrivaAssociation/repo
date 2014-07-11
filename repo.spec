@@ -4,7 +4,7 @@
 Summary:	Tool to manage multiple git repositories, commonly used for Android
 Name:		repo
 Version:	1.21
-Release:	1
+Release:	2
 License:	Apache Software License
 Group:		Development/Other
 Url:		http://code.google.com/p/git-repo
