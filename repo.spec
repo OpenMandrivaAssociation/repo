@@ -14,13 +14,6 @@ Requires:	git
 Requires:	gnupg
 Requires:	python2
 
-%track
-prog %{name} = {
-	url = http://code.google.com/p/git-repo/downloads/list
-	regex = "repo-(__VER__)"
-	version = %{version}
-}
-
 %description
 Repo is a tool that was built on top of Git to help manage the many Git
 repositories, upload to revision control systems, and automate parts of the
