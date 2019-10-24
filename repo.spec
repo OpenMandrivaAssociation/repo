@@ -3,7 +3,7 @@
 
 Summary:	Tool to manage multiple git repositories, commonly used for Android
 Name:		repo
-Version:	1.25
+Version:	1.26
 Release:	1
 License:	Apache Software License
 Group:		Development/Other
@@ -12,7 +12,7 @@ Source0:	https://storage.googleapis.com/git-repo-downloads/repo
 BuildArch:	noarch
 Requires:	git
 Requires:	gnupg
-Requires:	python2
+Requires:	python
 
 %description
 Repo is a tool that was built on top of Git to help manage the many Git
@@ -29,7 +29,8 @@ is an executable Python script that you can put anywhere in your path.
 
 %install
 mkdir -p %{buildroot}%{_bindir}
-sed -e 's,env python,env python2,' %{SOURCE0} >%{buildroot}%{_bindir}/repo
+#sed -e 's,env python,env python2,' %{SOURCE0} >%{buildroot}%{_bindir}/repo
+cp %{S:0} %{buildroot}%{_bindir}/
 chmod 0755 %{buildroot}%{_bindir}/repo
 
 %files
