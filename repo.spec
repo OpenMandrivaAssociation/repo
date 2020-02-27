@@ -3,7 +3,7 @@
 
 Summary:	Tool to manage multiple git repositories, commonly used for Android
 Name:		repo
-Version:	1.26
+Version:	2.4.1
 Release:	1
 License:	Apache Software License
 Group:		Development/Other
