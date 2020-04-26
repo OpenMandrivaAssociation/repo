@@ -3,11 +3,11 @@
 
 Summary:	Tool to manage multiple git repositories, commonly used for Android
 Name:		repo
-Version:	2.4.1
+Version:	2.6
 Release:	1
 License:	Apache Software License
 Group:		Development/Other
-Url:		http://code.google.com/p/git-repo
+Url:		https://android.googlesource.com/tools/repo
 Source0:	https://storage.googleapis.com/git-repo-downloads/repo
 BuildArch:	noarch
 Requires:	git
