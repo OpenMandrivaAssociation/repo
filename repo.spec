@@ -4,7 +4,7 @@
 Summary:	Tool to manage multiple git repositories, commonly used for Android
 Name:		repo
 Version:	2.8
-Release:	1
+Release:	2
 License:	Apache Software License
 Group:		Development/Other
 Url:		https://android.googlesource.com/tools/repo
