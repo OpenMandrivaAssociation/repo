@@ -16,6 +16,7 @@ BuildArch:	noarch
 Requires:	git
 Requires:	gnupg
 Requires:	python
+BuildRequires:	python3dist(setuptools)
 
 %description
 Repo is a tool that was built on top of Git to help manage the many Git
