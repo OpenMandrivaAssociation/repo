@@ -3,12 +3,15 @@
 
 Summary:	Tool to manage multiple git repositories, commonly used for Android
 Name:		repo
-Version:	2.8
-Release:	2
+Version:	2.10
+Release:	1
 License:	Apache Software License
 Group:		Development/Other
-Url:		https://android.googlesource.com/tools/repo
-Source0:	https://storage.googleapis.com/git-repo-downloads/repo
+# git clone https://gerrit.googlesource.com/git-repo
+# git archive -o repo-%{version}.tar --prefix repo-%{version}/ v%{version}
+# zstd --ultra -22 -f --rm repo-%{version}.tar
+Source0:	repo-%{version}.tar.zst
+Patch0:		0001-Use-a-single-system-copy-of-repo-don-t-call-home.patch
 BuildArch:	noarch
 Requires:	git
 Requires:	gnupg
@@ -24,14 +27,15 @@ the context of Android (and other projects that use repo). The repo command
 is an executable Python script that you can put anywhere in your path.
 
 %prep
+%autosetup -p1
 
 %build
+python setup.py build
 
 %install
-mkdir -p %{buildroot}%{_bindir}
-#sed -e 's,env python,env python2,' %{SOURCE0} >%{buildroot}%{_bindir}/repo
-cp %{S:0} %{buildroot}%{_bindir}/
-chmod 0755 %{buildroot}%{_bindir}/repo
+python setup.py install -O1 --root %{buildroot} --prefix %{_prefix}
 
 %files
 %{_bindir}/repo
+%{_datadir}/repo
+%{_prefix}/lib/python*/site-packages/repo*
