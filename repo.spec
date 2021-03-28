@@ -31,10 +31,10 @@ is an executable Python script that you can put anywhere in your path.
 %autosetup -p1
 
 %build
-python setup.py build
+%{__python} setup.py build
 
 %install
-python setup.py install -O1 --root %{buildroot} --prefix %{_prefix}
+%{__python} setup.py install -O1 --root %{buildroot} --prefix %{_prefix}
 
 %files
 %{_bindir}/repo
