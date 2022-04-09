@@ -3,7 +3,7 @@
 
 Summary:	Tool to manage multiple git repositories, commonly used for Android
 Name:		repo
-Version:	2.10
+Version:	2.22
 Release:	1
 License:	Apache Software License
 Group:		Development/Other
@@ -11,7 +11,6 @@ Group:		Development/Other
 # git archive -o repo-%{version}.tar --prefix repo-%{version}/ v%{version}
 # zstd --ultra -22 -f --rm repo-%{version}.tar
 Source0:	repo-%{version}.tar.zst
-Patch0:		0001-Use-a-single-system-copy-of-repo-don-t-call-home.patch
 BuildArch:	noarch
 Requires:	git
 Requires:	gnupg
@@ -35,8 +34,10 @@ is an executable Python script that you can put anywhere in your path.
 
 %install
 %{__python} setup.py install -O1 --root %{buildroot} --prefix %{_prefix}
+mkdir -p %{buildroot}%{_bindir}
+install -c -m 755 repo %{buildroot}%{_bindir}
 
 %files
 %{_bindir}/repo
-%{_datadir}/repo
+%{_prefix}/lib/python*/site-packages/subcmds
 %{_prefix}/lib/python*/site-packages/repo*
