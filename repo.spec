@@ -7,10 +7,10 @@ Version:	2.29.4
 Release:	1
 License:	Apache Software License
 Group:		Development/Other
-# git clone https://gerrit.googlesource.com/git-repo
-# git archive -o repo-%{version}.tar --prefix repo-%{version}/ v%{version}
-# zstd --ultra -22 -f --rm repo-%{version}.tar
+# Use package-source.sh to generate
+# upstream git doesn't offer tarball downloads
 Source0:	repo-%{version}.tar.zst
+Source1:	package-source.sh
 BuildArch:	noarch
 Requires:	git
 Requires:	gnupg
