@@ -3,8 +3,8 @@
 
 Summary:	Tool to manage multiple git repositories, commonly used for Android
 Name:		repo
-Version:	2.32
-Release:	2
+Version:	2.35
+Release:	1
 License:	Apache Software License
 Group:		Development/Other
 # Use package-source.sh to generate
