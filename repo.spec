@@ -3,7 +3,7 @@
 
 Summary:	Tool to manage multiple git repositories, commonly used for Android
 Name:		repo
-Version:	2.57.1
+Version:	2.60.1
 Release:	1
 License:	Apache Software License
 Group:		Development/Other
@@ -14,8 +14,8 @@ Source1:	package-source.sh
 BuildArch:	noarch
 Requires:	git
 Requires:	gnupg
-Requires:	python
-BuildRequires:	python3dist(setuptools)
+BuildSystem:	python
+BuildRequires:	python%{pyver}dist(setuptools)
 
 %description
 Repo is a tool that was built on top of Git to help manage the many Git
@@ -26,14 +26,7 @@ Repo is not meant to replace Git, only to make it easier to work with Git in
 the context of Android (and other projects that use repo). The repo command
 is an executable Python script that you can put anywhere in your path.
 
-%prep
-%autosetup -p1
-
-%build
-%{__python} setup.py build
-
-%install
-%{__python} setup.py install -O1 --root %{buildroot} --prefix %{_prefix}
+%install -a
 mkdir -p %{buildroot}%{_bindir}
 install -c -m 755 repo %{buildroot}%{_bindir}
 
